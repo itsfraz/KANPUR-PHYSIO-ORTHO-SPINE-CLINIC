@@ -17,8 +17,6 @@ export default function Header({
   setLanguage, 
   activeSection, 
   setActiveSection, 
-  viewMode, 
-  setViewMode,
   onOpenContact
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,13 +45,9 @@ export default function Header({
     setActiveSection(id);
     setMobileMenuOpen(false);
 
-    if (viewMode === 'tabs') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -61,8 +55,8 @@ export default function Header({
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
       
       {/* Top Utility Bar - Clean, Compact & Fully Responsive */}
-      <div className="bg-slate-900 text-slate-100 text-[11px] sm:text-xs py-1.5 px-3 sm:px-6 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <div className="bg-slate-900 text-slate-100 text-[11px] sm:text-xs py-1.5 pl-[5px] pr-3 sm:pr-6 lg:pr-8 border-b border-slate-800">
+        <div className="w-full flex items-center justify-between gap-2">
           
           {/* Left: Timings & Location */}
           <div className="flex items-center gap-3 sm:gap-5 truncate">
@@ -117,14 +111,14 @@ export default function Header({
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3">
-        <div className="flex items-center justify-between gap-3 sm:gap-6">
+      {/* Main Navbar - Aligned to left with 5px margin from corner */}
+      <div className="w-full pl-[5px] pr-3 sm:pr-6 lg:pr-8 py-2 sm:py-2.5">
+        <div className="flex items-center justify-between gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
           
-          {/* Clinic Brand & Logo */}
+          {/* Clinic Brand & Logo with exactly 5px left margin from corner */}
           <div 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group min-w-0"
+            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group shrink-0 mr-4 sm:mr-6 lg:mr-8 xl:mr-10"
           >
             {/* Logo Emblem */}
             <div className="relative w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 bg-white p-1 sm:p-1.5 rounded-xl sm:rounded-2xl border border-teal-500/30 shadow-xs flex items-center justify-center overflow-hidden shrink-0 group-hover:border-teal-600 transition-all">
@@ -152,21 +146,21 @@ export default function Header({
                   {language === 'hi' ? 'ऑर्थो • स्पाइन' : 'ORTHO • SPINE'}
                 </span>
               </div>
-              <p className="text-[10px] sm:text-[11px] font-bold text-teal-700 uppercase tracking-wider mt-0.5 truncate">
+              <p className="text-[10px] sm:text-[11px] font-bold text-teal-700 uppercase tracking-wider mt-1 truncate">
                 {language === 'hi' ? CLINIC_CONFIG.navbarSubtitleHindi : CLINIC_CONFIG.navbarSubtitle}
               </p>
             </div>
           </div>
 
-          {/* Desktop Navigation Links (CALL NOW & WHATSAPP BUTTONS REMOVED PER REQUEST) */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 shrink-0">
+          {/* Desktop Navigation Links cleanly aligned with ml-auto and comfortable gap */}
+          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 shrink-0 ml-auto">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-sm font-bold uppercase tracking-wider transition-all ${
+                  className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs xl:text-sm font-bold uppercase tracking-wider transition-all ${
                     isActive 
                       ? 'bg-teal-700 text-white shadow-xs' 
                       : 'text-slate-800 hover:text-teal-700 hover:bg-teal-50'
@@ -178,8 +172,8 @@ export default function Header({
             })}
           </nav>
 
-          {/* Mobile Hamburger Toggle Button (Call and WhatsApp buttons removed from here as well) */}
-          <div className="flex items-center gap-2 lg:hidden shrink-0">
+          {/* Mobile Hamburger Toggle Button */}
+          <div className="flex items-center gap-2 lg:hidden shrink-0 ml-auto">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-slate-900 hover:bg-slate-100 rounded-xl transition border border-slate-200"

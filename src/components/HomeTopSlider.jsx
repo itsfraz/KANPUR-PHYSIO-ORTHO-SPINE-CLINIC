@@ -18,27 +18,27 @@ export default function HomeTopSlider({
   const slides = [
     {
       id: 1,
-      image: '/images/sli-1.jpg',
+      image: '/images/Slider-1.png',
       alt: 'Kanpur Physio Ortho Spine Clinic - Spine Care & Decompression Bay'
     },
     {
       id: 2,
-      image: '/images/sli-2.jpg',
+      image: '/images/Slider-2.png',
       alt: 'Kanpur Physio Ortho Spine Clinic - Orthopedic Rehabilitation & Exercise Bay'
     },
     {
       id: 3,
-      image: '/images/sli-3.jpg',
+      image: '/images/Slider-3.png',
       alt: 'Kanpur Physio Ortho Spine Clinic - Advanced Modalities & Patient Care'
     },
     {
       id: 4,
-      image: '/images/sli-4.webp',
+      image: '/images/Slider-4.png',
       alt: 'Kanpur Physio Ortho Spine Clinic - Clinical Therapy & Treatment Equipment'
     },
     {
       id: 5,
-      image: '/images/sli.png',
+      image: '/images/Slider-5.png',
       alt: 'Kanpur Physio Ortho Spine Clinic - Comprehensive Musculoskeletal Rehabilitation'
     }
   ];

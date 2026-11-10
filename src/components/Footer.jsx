@@ -4,12 +4,11 @@ import {
   Mail, 
   MapPin, 
   Clock, 
-  ClipboardList,
   MessageCircle
 } from 'lucide-react';
 import { CLINIC_CONFIG } from '../config/clinicData';
 
-export default function Footer({ language, onOpenChecklist, onNavigateToSection }) {
+export default function Footer({ language, onNavigateToSection }) {
   const isHindi = language === 'hi';
 
   const handleNav = (id) => {
@@ -115,16 +114,6 @@ export default function Footer({ language, onOpenChecklist, onNavigateToSection 
                   {CLINIC_CONFIG.contact.email}
                 </a>
               </div>
-            </div>
-
-            <div className="pt-0.5">
-              <button
-                onClick={onOpenChecklist}
-                className="inline-flex items-center gap-1 text-[10px] font-bold text-teal-400 hover:text-teal-300 transition"
-              >
-                <ClipboardList className="w-3 h-3" />
-                <span>Admin Launch Checklist</span>
-              </button>
             </div>
           </div>
 
