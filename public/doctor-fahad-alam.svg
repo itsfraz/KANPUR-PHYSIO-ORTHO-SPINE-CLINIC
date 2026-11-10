@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="50%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="coatGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f1f5f9" />
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0a97d" />
+      <stop offset="100%" stop-color="#c68a5c" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle with medical gradient -->
+  <circle cx="200" cy="200" r="195" fill="url(#bgGrad)" />
+  <circle cx="200" cy="200" r="185" fill="none" stroke="#ffffff" stroke-width="3" stroke-opacity="0.3" stroke-dasharray="8 6" />
+
+  <!-- Radiance pattern -->
+  <g stroke="#ffffff" stroke-opacity="0.1" stroke-width="2">
+    <circle cx="200" cy="200" r="140" fill="none" />
+    <circle cx="200" cy="200" r="100" fill="none" />
+  </g>
+
+  <!-- Doctor Silhouette -->
+  <!-- Shoulders / Torso / White Medical Coat -->
+  <path d="M 90 380 C 90 300, 140 270, 200 270 C 260 270, 310 300, 310 380 Z" fill="url(#coatGrad)" />
+  
+  <!-- Inner shirt (teal scrub) -->
+  <path d="M 175 270 L 200 320 L 225 270 Z" fill="#0d9488" />
+
+  <!-- Lapels of white coat -->
+  <path d="M 160 270 L 180 370 L 200 370 L 175 270 Z" fill="#e2e8f0" />
+  <path d="M 240 270 L 220 370 L 200 370 L 225 270 Z" fill="#e2e8f0" />
+
+  <!-- Neck -->
+  <rect x="180" y="220" width="40" height="60" rx="10" fill="url(#skinGrad)" />
+
+  <!-- Head -->
+  <ellipse cx="200" cy="180" rx="55" ry="65" fill="url(#skinGrad)" />
+
+  <!-- Hair / Groomed Style -->
+  <path d="M 145 180 C 145 115, 170 110, 200 110 C 230 110, 255 115, 255 180 C 255 150, 240 125, 200 125 C 160 125, 145 150, 145 180 Z" fill="#1e293b" />
+  <!-- Beard / sideburns shadow subtle -->
+  <path d="M 152 185 C 155 240, 175 255, 200 255 C 225 255, 245 240, 248 185 C 242 225, 222 245, 200 245 C 178 245, 158 225, 152 185 Z" fill="#1e293b" opacity="0.8" />
+
+  <!-- Stethoscope around neck -->
+  <!-- Left tubing -->
+  <path d="M 165 240 C 150 280, 155 330, 185 345" fill="none" stroke="#334155" stroke-width="6" stroke-linecap="round" />
+  <!-- Right tubing -->
+  <path d="M 235 240 C 250 280, 245 330, 215 345" fill="none" stroke="#334155" stroke-width="6" stroke-linecap="round" />
+  <!-- Stethoscope chest piece -->
+  <circle cx="200" cy="355" r="14" fill="#0284c7" stroke="#ffffff" stroke-width="3" />
+  <circle cx="200" cy="355" r="7" fill="#ffffff" />
+
+  <!-- Badge at bottom: DR. MOHAMMAD FAHAD ALAM -->
+  <rect x="50" y="340" width="300" height="42" rx="21" fill="#0f172a" fill-opacity="0.92" stroke="#14b8a6" stroke-width="2" />
+  <text x="200" y="365" font-family="'Outfit', 'Inter', sans-serif" font-weight="900" font-size="13" fill="#ffffff" text-anchor="middle" letter-spacing="1">DR. MOHAMMAD FAHAD ALAM</text>
+</svg>
+
