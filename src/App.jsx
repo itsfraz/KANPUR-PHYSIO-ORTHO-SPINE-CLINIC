@@ -114,6 +114,10 @@ export default function App() {
           language={language} 
           onOpenContact={handleOpenContact}
         />
+        <ContactSection 
+          language={language} 
+          defaultAppointmentType={defaultAppointmentType} 
+        />
         <TreatmentPlanner 
           language={language} 
           onNavigateToContact={() => handleNavigateToSection('contact')} 
@@ -123,15 +127,11 @@ export default function App() {
           onSelectHomeVisit={handleSelectHomeVisit} 
           onOpenContact={handleOpenContact}
         />
-        <Testimonials language={language} />
         <FAQ 
           language={language} 
           onOpenContact={handleOpenContact}
         />
-        <ContactSection 
-          language={language} 
-          defaultAppointmentType={defaultAppointmentType} 
-        />
+        <Testimonials language={language} />
       </main>
 
       {/* Footer */}

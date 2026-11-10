@@ -35,10 +35,10 @@ export default function Header({
     { id: 'home', labelEn: 'HOME', labelHi: 'होम' },
     { id: 'about', labelEn: 'ABOUT DOCTOR', labelHi: 'डॉक्टर' },
     { id: 'services', labelEn: 'SERVICES', labelHi: 'सेवाएं' },
-    { id: 'home-visit', labelEn: 'HOME VISITS', labelHi: 'होम विजिट' },
-    { id: 'testimonials', labelEn: 'TESTIMONIALS', labelHi: 'प्रशंसापत्र' },
-    { id: 'faq', labelEn: 'FAQ', labelHi: 'प्रश्न-उत्तर' },
     { id: 'contact', labelEn: 'CONTACT US', labelHi: 'संपर्क करें' },
+    { id: 'home-visit', labelEn: 'HOME VISITS', labelHi: 'होम विजिट' },
+    { id: 'faq', labelEn: 'FAQ', labelHi: 'प्रश्न-उत्तर' },
+    { id: 'testimonials', labelEn: 'TESTIMONIALS', labelHi: 'प्रशंसापत्र' },
   ];
 
   const handleNavClick = (id) => {

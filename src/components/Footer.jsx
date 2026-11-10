@@ -25,59 +25,68 @@ export default function Footer({ language, onNavigateToSection }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-8 pb-5 border-b border-slate-900">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 pb-6 border-b border-slate-900 items-start">
           
           {/* Clinic Brand & Doctor Identity (5 Cols) */}
-          <div className="md:col-span-5 space-y-2.5">
-            <div className="inline-block bg-white p-2 rounded-xl border border-slate-800 shadow-md">
-              <img 
-                src="/images/LOgo.png" 
-                alt="Kanpur Physio Ortho Spine Clinic Logo" 
-                className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
-              />
+          <div className="md:col-span-5 space-y-3">
+            
+            {/* Horizontal Brand Lockup: Logo directly beside Clinic Name */}
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white p-1.5 rounded-2xl border border-slate-800 shadow-sm flex items-center justify-center shrink-0">
+                <img 
+                  src="/images/LOgo.png" 
+                  alt="Kanpur Physio Ortho Spine Clinic Logo" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+
+              <div className="min-w-0">
+                <h3 className="text-white font-extrabold uppercase tracking-wide text-sm sm:text-base leading-snug">
+                  {isHindi ? CLINIC_CONFIG.clinicNameHindi : CLINIC_CONFIG.clinicName}
+                </h3>
+                <p className="text-[10px] sm:text-[11px] font-bold text-teal-400 uppercase tracking-wider mt-0.5">
+                  {isHindi ? CLINIC_CONFIG.taglineHindi : CLINIC_CONFIG.tagline}
+                </p>
+              </div>
             </div>
 
-            <h3 className="text-white font-extrabold uppercase tracking-wide text-sm sm:text-base lg:text-lg leading-tight">
-              {isHindi ? CLINIC_CONFIG.clinicNameHindi : CLINIC_CONFIG.clinicName}
-            </h3>
-
-            <p className="text-[10px] sm:text-[11px] font-bold text-teal-400 uppercase tracking-wider">
-              {isHindi ? CLINIC_CONFIG.taglineHindi : CLINIC_CONFIG.tagline}
-            </p>
-
-            <p className="text-[11px] text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-[11px] text-slate-400 leading-relaxed max-w-md">
               {isHindi 
-                ? 'कानपुर में समर्पित फिजियोथेरेपी, ऑर्थोपेडिक पुनर्वास और स्पाइन केयर केंद्र।' 
-                : 'Advanced outpatient physiotherapy & home rehabilitation in Kanpur. Evidence-based spine & orthopedic care.'}
+                ? 'कानपुर में समर्पित फिजियोथेरेपी, ऑर्थोपेडिक पुनर्वास और स्पाइन केयर केंद्र — वैज्ञानिक एवं बिना ऑपरेशन दर्द निवारण।' 
+                : 'Advanced outpatient physiotherapy & bedside home rehabilitation in Kanpur. Evidence-based spine and orthopedic recovery.'}
             </p>
 
-            <div className="text-[11px] text-slate-300 font-medium">
-              <strong className="text-white">{CLINIC_CONFIG.doctor.name}</strong> ({CLINIC_CONFIG.doctor.qualifications})
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-300 font-medium">
+              <strong className="text-white">{CLINIC_CONFIG.doctor.name}</strong>
+              <span className="text-teal-400 font-bold">•</span>
+              <span className="text-slate-400">{CLINIC_CONFIG.doctor.qualifications}</span>
             </div>
           </div>
 
           {/* Quick Links (3 Cols) */}
-          <div className="md:col-span-3 space-y-2">
-            <h4 className="text-white font-extrabold uppercase text-[11px] tracking-wider">
-              {isHindi ? 'त्वरित लिंक' : 'QUICK LINKS'}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-white font-extrabold uppercase text-xs tracking-wider flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+              <span>{isHindi ? 'त्वरित लिंक' : 'QUICK LINKS'}</span>
             </h4>
-            <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[11px]">
-              <button onClick={() => handleNav('home')} className="hover:text-teal-400 text-left transition">Home</button>
-              <button onClick={() => handleNav('about')} className="hover:text-teal-400 text-left transition">About</button>
-              <button onClick={() => handleNav('services')} className="hover:text-teal-400 text-left transition">Services</button>
-              <button onClick={() => handleNav('home-visit')} className="hover:text-teal-400 text-left transition">Home Care</button>
-              <button onClick={() => handleNav('testimonials')} className="hover:text-teal-400 text-left transition">Reviews</button>
-              <button onClick={() => handleNav('faq')} className="hover:text-teal-400 text-left transition">FAQ</button>
-              <button onClick={() => handleNav('contact')} className="hover:text-teal-400 text-left transition col-span-2">Contact Us</button>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-[11px]">
+              <button onClick={() => handleNav('home')} className="hover:text-teal-400 text-left transition cursor-pointer">Home</button>
+              <button onClick={() => handleNav('about')} className="hover:text-teal-400 text-left transition cursor-pointer">About</button>
+              <button onClick={() => handleNav('services')} className="hover:text-teal-400 text-left transition cursor-pointer">Services</button>
+              <button onClick={() => handleNav('contact')} className="hover:text-teal-400 text-left transition cursor-pointer">Contact Us</button>
+              <button onClick={() => handleNav('home-visit')} className="hover:text-teal-400 text-left transition cursor-pointer">Home Care</button>
+              <button onClick={() => handleNav('faq')} className="hover:text-teal-400 text-left transition cursor-pointer">FAQ</button>
+              <button onClick={() => handleNav('testimonials')} className="hover:text-teal-400 text-left transition col-span-2 cursor-pointer">Reviews / Testimonials</button>
             </div>
           </div>
 
           {/* Contact Coordinates (4 Cols) */}
-          <div className="md:col-span-4 space-y-2">
-            <h4 className="text-white font-extrabold uppercase text-[11px] tracking-wider">
-              {isHindi ? 'संपर्क एवं समय' : 'CLINIC COORDINATES'}
+          <div className="md:col-span-4 space-y-3">
+            <h4 className="text-white font-extrabold uppercase text-xs tracking-wider flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+              <span>{isHindi ? 'संपर्क एवं समय' : 'CLINIC COORDINATES'}</span>
             </h4>
-            <div className="space-y-1.5 text-[11px]">
+            <div className="space-y-2 text-[11px]">
               <div className="flex items-center gap-1.5 text-slate-300">
                 <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                 <span className="truncate">{CLINIC_CONFIG.address.short}</span>
