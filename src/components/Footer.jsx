@@ -32,7 +32,7 @@ export default function Footer({ language, onNavigateToSection }) {
             
             {/* Horizontal Brand Lockup: Logo directly beside Clinic Name */}
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white p-1.5 rounded-2xl border border-slate-800 shadow-sm flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white p-0.5 rounded-full border border-slate-800 shadow-sm flex items-center justify-center shrink-0 overflow-hidden">
                 <img 
                   src="/images/LOgo.png" 
                   alt="Kanpur Physio Ortho Spine Clinic Logo" 
@@ -56,10 +56,12 @@ export default function Footer({ language, onNavigateToSection }) {
                 : 'Advanced outpatient physiotherapy & bedside home rehabilitation in Kanpur. Evidence-based spine and orthopedic recovery.'}
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-300 font-medium">
+            <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-300 font-medium">
               <strong className="text-white">{CLINIC_CONFIG.doctor.name}</strong>
               <span className="text-teal-400 font-bold">•</span>
               <span className="text-slate-400">{CLINIC_CONFIG.doctor.qualifications}</span>
+              <span className="text-teal-400 font-bold">•</span>
+              <span className="text-teal-300 font-bold">{CLINIC_CONFIG.registrationNumberDisplay}</span>
             </div>
           </div>
 
@@ -91,7 +93,7 @@ export default function Footer({ language, onNavigateToSection }) {
                 <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                 <span className="truncate">{CLINIC_CONFIG.address.short}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                 <div className="flex items-center gap-1.5">
                   <a 
                     href={CLINIC_CONFIG.contact.phoneTel} 
@@ -111,10 +113,16 @@ export default function Footer({ language, onNavigateToSection }) {
                     <MessageCircle className="w-3.5 h-3.5 fill-current" />
                   </a>
                 </div>
-                <span className="text-slate-700">|</span>
-                <div className="flex items-center gap-1 text-slate-300">
-                  <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>9 AM – 10 PM</span>
+              </div>
+
+              {/* Visiting Hours Pill in Footer */}
+              <div className="flex items-center gap-1.5 text-slate-300 bg-slate-900/80 p-1.5 rounded-lg border border-slate-800">
+                <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <div className="text-[10px] leading-tight">
+                  <span className="text-slate-400 font-semibold block">{isHindi ? 'विजिटिंग आवर्स (सातों दिन):' : 'Visiting Hours (All 7 Days):'}</span>
+                  <span className="text-teal-300 font-bold">8:00–11:00 AM</span>
+                  <span className="text-slate-500 mx-1">•</span>
+                  <span className="text-teal-300 font-bold">4:00–9:00 PM</span>
                 </div>
               </div>
               <div className="flex items-center gap-1.5 text-slate-300">
@@ -134,7 +142,7 @@ export default function Footer({ language, onNavigateToSection }) {
             © {new Date().getFullYear()} <strong className="text-slate-300">KANPUR PHYSIO ORTHO SPINE CLINIC</strong>. All Rights Reserved.
           </p>
           <p className="text-slate-500">
-            Educational & appointment inquiry portal • Param Purwa, Juhi, Kanpur - 208014
+            {CLINIC_CONFIG.registrationNumberDisplay} • 83/4A-3, B.M. Market, Near Popular Dharam Kanta, Parampurwa, Kanpur - 208014
           </p>
         </div>
 

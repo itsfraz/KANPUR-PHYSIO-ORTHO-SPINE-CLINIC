@@ -29,7 +29,7 @@ export default function ContactSection({ language, selectedService = '', default
     homeAddress: '',
     serviceCategory: 'Back Pain & Neck Pain',
     appointmentType: defaultAppointmentType,
-    preferredSlot: 'Morning (9:00 AM – 1:00 PM)',
+    preferredSlot: 'Morning Visiting Hours (8:00 AM – 11:00 AM)',
     message: ''
   });
 
@@ -181,21 +181,28 @@ export default function ContactSection({ language, selectedService = '', default
             <div className="bg-slate-900 text-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-lg border border-slate-800">
               <h3 className="text-base sm:text-lg font-black uppercase tracking-wider text-white mb-4 pb-3 border-b border-slate-800 flex items-center justify-between">
                 <span>{isHindi ? 'क्लीनिक विवरण' : 'CLINIC DESK'}</span>
-                <span className="text-[10px] text-teal-400 bg-teal-950 px-2 py-0.5 rounded-full border border-teal-800">
-                  Param Purwa, Juhi (Kanpur - 208014)
+                <span className="text-[10px] font-bold text-teal-300 bg-teal-950 px-2.5 py-0.5 rounded-full border border-teal-800">
+                  {isHindi ? CLINIC_CONFIG.registrationNumberHindi : CLINIC_CONFIG.registrationNumberDisplay}
                 </span>
               </h3>
 
               <div className="space-y-3.5 text-xs sm:text-sm">
                 
                 {/* Doctor Name & Lead */}
-                <div className="flex items-start gap-2.5 sm:gap-3 text-slate-300 pb-3 border-b border-slate-800">
-                  <User className="w-4 h-4 sm:w-5 sm:h-5 text-teal-400 shrink-0 mt-0.5" />
+                <div className="flex items-center gap-3 text-slate-300 pb-3 border-b border-slate-800">
+                  <div className="w-11 h-11 rounded-xl overflow-hidden shrink-0 ring-2 ring-teal-500/50 p-0.5 bg-teal-900 shadow-sm">
+                    <img 
+                      src={CLINIC_CONFIG.images?.doctor || '/images/Profile-Image.jpg'} 
+                      alt="Dr. Mohammad Fahad Alam - Physical Therapist"
+                      className="w-full h-full object-cover object-top rounded-[10px]"
+                      onError={(e) => { e.currentTarget.src = '/doctor-fahad-alam.svg'; }}
+                    />
+                  </div>
                   <div>
-                    <strong className="text-white block uppercase tracking-wide">
+                    <strong className="text-white block uppercase tracking-wide text-xs sm:text-sm">
                       {isHindi ? CLINIC_CONFIG.doctor.nameHindi : CLINIC_CONFIG.doctor.name}
                     </strong>
-                    <span className="text-teal-300 text-[11px] sm:text-xs font-semibold">
+                    <span className="text-teal-300 text-[11px] font-semibold block">
                       {CLINIC_CONFIG.doctor.qualifications} • {CLINIC_CONFIG.doctor.internship}
                     </span>
                   </div>
@@ -275,20 +282,43 @@ export default function ContactSection({ language, selectedService = '', default
                   </div>
                 </div>
 
-                {/* Operating Hours */}
-                <div className="flex items-start gap-2.5 sm:gap-3 text-slate-300">
-                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white block uppercase tracking-wide">
-                      {isHindi ? 'परामर्श समय:' : 'CONSULTATION HOURS:'}
-                    </strong>
-                    <p className="text-amber-300 font-bold mt-0.5 text-xs sm:text-sm">
-                      {language === 'hi' ? CLINIC_CONFIG.schedule.timingsHindi : CLINIC_CONFIG.schedule.timings}
-                    </p>
-                    <span className="text-[10px] text-slate-400 block">
-                      {language === 'hi' ? CLINIC_CONFIG.schedule.workingDaysHindi : CLINIC_CONFIG.schedule.workingDays}
+                {/* Visiting Hours Card */}
+                <div className="p-3.5 bg-slate-800/90 rounded-2xl border border-slate-700 space-y-2.5 shadow-sm">
+                  <div className="flex items-center justify-between gap-2 border-b border-slate-700/80 pb-2">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+                      <strong className="text-white block uppercase tracking-wide text-xs">
+                        {isHindi ? 'विजिटिंग आवर्स:' : 'CLINICAL VISITING HOURS:'}
+                      </strong>
+                    </div>
+                    <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800/80 px-2 py-0.5 rounded-full">
+                      {isHindi ? 'सातों दिन खुला' : 'Open All 7 Days'}
                     </span>
                   </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="bg-slate-900/95 p-2 rounded-xl border border-slate-700/80">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-teal-400 block mb-0.5">
+                        {isHindi ? 'प्रातः सत्र' : 'Morning Session'}
+                      </span>
+                      <strong className="text-white text-xs sm:text-[13px] block">
+                        8:00 AM – 11:00 AM
+                      </strong>
+                    </div>
+                    <div className="bg-slate-900/95 p-2 rounded-xl border border-slate-700/80">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-teal-400 block mb-0.5">
+                        {isHindi ? 'सायं सत्र' : 'Evening Session'}
+                      </span>
+                      <strong className="text-white text-xs sm:text-[13px] block">
+                        4:00 PM – 9:00 PM
+                      </strong>
+                    </div>
+                  </div>
+                  <span className="text-[10px] text-slate-400 block text-center sm:text-left">
+                    {isHindi 
+                      ? 'सोमवार से रविवार • परामर्श एवं फिजियोथेरेपी उपचार' 
+                      : 'Monday through Sunday • Direct in-clinic consultations & therapies'}
+                  </span>
                 </div>
 
               </div>
@@ -504,7 +534,7 @@ export default function ContactSection({ language, selectedService = '', default
                         className="text-teal-600 focus:ring-teal-500"
                       />
                       <span className="text-xs uppercase tracking-wide">
-                        {isHindi ? 'क्लीनिक विजिट (परम पुरवा, जूही)' : 'Clinic Visit (Param Purwa, Juhi)'}
+                        {isHindi ? 'क्लीनिक विजिट (बी.एम. मार्केट, परम पुरवा)' : 'Clinic Visit (B.M. Market, Parampurwa)'}
                       </span>
                     </label>
 
@@ -587,16 +617,22 @@ export default function ContactSection({ language, selectedService = '', default
                 {/* Preferred Slot */}
                 <div>
                   <label className="block text-xs font-extrabold text-black uppercase tracking-wider mb-1">
-                    {isHindi ? 'पसंदीदा समय स्लॉट' : 'Preferred Time Slot'}
+                    {isHindi ? 'पसंदीदा विजिटिंग समय स्लॉट' : 'Preferred Visiting Time Slot'}
                   </label>
                   <select
                     value={formData.preferredSlot}
                     onChange={(e) => setFormData({ ...formData, preferredSlot: e.target.value })}
-                    className="w-full text-xs sm:text-sm p-3 sm:p-3.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:border-teal-600"
+                    className="w-full text-xs sm:text-sm p-3 sm:p-3.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:border-teal-600 font-semibold"
                   >
-                    <option value="Morning (9:00 AM – 1:00 PM)">Morning (9:00 AM – 1:00 PM)</option>
-                    <option value="Afternoon (1:00 PM – 5:00 PM)">Afternoon (1:00 PM – 5:00 PM)</option>
-                    <option value="Evening (5:00 PM – 10:00 PM)">Evening (5:00 PM – 10:00 PM)</option>
+                    <option value="Morning Visiting Hours (8:00 AM – 11:00 AM)">
+                      {isHindi ? 'सुबह का सत्र: 8:00 AM – 11:00 AM' : 'Morning Visiting Hours (8:00 AM – 11:00 AM)'}
+                    </option>
+                    <option value="Evening Visiting Hours (4:00 PM – 9:00 PM)">
+                      {isHindi ? 'शाम का सत्र: 4:00 PM – 9:00 PM' : 'Evening Visiting Hours (4:00 PM – 9:00 PM)'}
+                    </option>
+                    <option value="Home Visit (Flexible Timing Across Kanpur)">
+                      {isHindi ? 'होम विजिट (कानपुर में सुविधानुसार समय)' : 'Home Visit Bedside Care (Flexible Slot)'}
+                    </option>
                   </select>
                 </div>
 

@@ -14,12 +14,15 @@ export const CLINIC_CONFIG = {
   navbarSubtitleHindi: "ऑर्थो एवं स्पाइन क्लीनिक",
   tagline: "RESTORING MOVEMENT • RELIEVING PAIN • IMPROVING LIVES",
   taglineHindi: "गतिशीलता की पुनर्स्थापना • दर्द से मुक्ति • बेहतर जीवन",
+  registrationNumber: "REGD-PHY/16070",
+  registrationNumberDisplay: "REGD-PHY/16070",
+  registrationNumberHindi: "REGD-PHY/16070",
   
   // Official Clinic Media Assets & Auto-detection from /images/
   images: {
     logo: "/images/LOgo.png",
-    logoFallback: "/logo.svg",
-    doctor: "/images/doctor.jpg",
+    logoFallback: "/images/LOgo.png",
+    doctor: "/images/Profile-Image.jpg",
     doctorFallback: "/doctor-fahad-alam.svg",
     clinicInterior: "/images/clinic-interior.jpg",
     clinicInteriorFallback: "/clinic-interior.svg",
@@ -36,30 +39,31 @@ export const CLINIC_CONFIG = {
   
   // Physical Location & Service Area
   address: {
-    line1: "Param Purwa, Juhi",
-    line2: "Near Govind Nagar & Kidwai Nagar",
-    area: "Param Purwa",
-    locality: "Juhi",
+    line1: "83/4A-3, B.M. Market",
+    line2: "Near Popular Dharam Kanta, Parampurwa",
+    market: "B.M. Market",
+    area: "Parampurwa",
+    locality: "Parampurwa",
     city: "Kanpur",
     district: "Kanpur Nagar",
     state: "Uttar Pradesh",
     pincode: "208014",
     country: "India",
-    full: "Param Purwa, Juhi, Near Govind Nagar & Kidwai Nagar, Kanpur, Uttar Pradesh 208014, India",
-    hindi: "परम पुरवा, जूही (निकट गोविंद नगर एवं किदवई नगर), कानपुर, उत्तर प्रदेश 208014, भारत",
-    short: "Param Purwa, Juhi, Kanpur - 208014",
-    shortHindi: "परम पुरवा, जूही, कानपुर - 208014",
-    landmark: "Param Purwa Main Road, Near Govind Nagar & Kidwai Nagar",
-    landmarkHindi: "परम पुरवा मुख्य मार्ग, निकट गोविंद नगर एवं किदवई नगर",
+    full: "83/4A-3, B.M. Market, Near Popular Dharam Kanta, Parampurwa, Kanpur, Uttar Pradesh 208014, India",
+    hindi: "83/4A-3, बी.एम. मार्केट, निकट पॉपुलर धरम कांटा, परम पुरवा, कानपुर, उत्तर प्रदेश 208014, भारत",
+    short: "83/4A-3, B.M. Market, Parampurwa, Kanpur - 208014",
+    shortHindi: "83/4A-3, बी.एम. मार्केट, परम पुरवा, कानपुर - 208014",
+    landmark: "Near Popular Dharam Kanta, B.M. Market, Parampurwa",
+    landmarkHindi: "निकट पॉपुलर धरम कांटा, बी.एम. मार्केट, परम पुरवा",
     coordinatesDms: "26°26'55.3\"N 80°19'16.9\"E",
     mapCoordinates: {
       lat: 26.448694,
       lng: 80.321361,
       dms: "26°26'55.3\"N 80°19'16.9\"E",
     },
-    googleMapsSearchUrl: "https://www.google.com/maps/search/?api=1&query=26.448694,80.321361",
-    googleMapsDirectionsUrl: "https://www.google.com/maps/dir/?api=1&destination=26.448694,80.321361",
-    googleMapsEmbedUrl: "https://maps.google.com/maps?q=26.448694,80.321361&t=&z=16&ie=UTF8&iwloc=&output=embed"
+    googleMapsSearchUrl: "https://www.google.com/maps/search/?api=1&query=83%2F4A-3%2C+B.M+Market+Near+Popular+Dharam+Kanta+Parampurwa%2C+Kanpur-208014",
+    googleMapsDirectionsUrl: "https://www.google.com/maps/dir/?api=1&destination=83%2F4A-3%2C+B.M+Market+Near+Popular+Dharam+Kanta+Parampurwa%2C+Kanpur-208014",
+    googleMapsEmbedUrl: "https://maps.google.com/maps?q=83/4A-3,+B.M+Market+Near+Popular+Dharam+Kanta+Parampurwa,+Kanpur-208014&t=&z=16&ie=UTF8&iwloc=&output=embed"
   },
 
   // Contact Information
@@ -73,12 +77,18 @@ export const CLINIC_CONFIG = {
     emailMailto: "mailto:zplusphysio@gmail.com",
   },
 
-  // Clinic Operating Schedule
+  // Clinic Operating Schedule & Visiting Hours
   schedule: {
     workingDays: "Monday to Sunday",
     workingDaysHindi: "सोमवार से रविवार (सातों दिन)",
-    timings: "9:00 AM – 10:00 PM",
-    timingsHindi: "सुबह 9:00 बजे से रात 10:00 बजे तक",
+    visitingHours: "8:00 AM to 11:00 AM; 4:00 PM to 9:00 PM",
+    visitingHoursHindi: "प्रातः 8:00 से 11:00 बजे; सायं 4:00 से 9:00 बजे",
+    morningSlot: "8:00 AM to 11:00 AM",
+    morningSlotHindi: "सुबह 8:00 से 11:00 बजे",
+    eveningSlot: "4:00 PM to 9:00 PM",
+    eveningSlotHindi: "शाम 4:00 से 9:00 बजे",
+    timings: "8:00 AM – 11:00 AM • 4:00 PM – 9:00 PM",
+    timingsHindi: "सुबह 8:00 – 11:00 • शाम 4:00 – 9:00",
     isOpenAllDays: true,
   },
 
@@ -300,10 +310,10 @@ export const CLINIC_CONFIG = {
       aHindi: "आप हमारे आधिकारिक नंबर 9453201140 पर कॉल करके या व्हाट्सएप पर मैसेज भेजकर तुरंत अपॉइंटमेंट बुक कर सकते हैं। इसके अलावा इस वेबसाइट के संपर्क फॉर्म से भी अनुरोध भेज सकते हैं।"
     },
     {
-      q: "What are the clinic timings and working days?",
-      qHindi: "क्लीनिक का समय और कार्य दिवस क्या हैं?",
-      a: "The clinic operates 7 days a week, Monday through Sunday, from 9:00 AM to 10:00 PM. This flexible schedule allows working professionals and busy family members to access treatment without disrupting their daily commitments.",
-      aHindi: "क्लीनिक सप्ताह के सातों दिन, सोमवार से रविवार, सुबह 9:00 बजे से रात 10:00 बजे तक खुला रहता है ताकि नौकरीपेशा और परिवार के सभी सदस्य अपनी सुविधानुसार समय पर उपचार करा सकें।"
+      q: "What are the clinic visiting hours and working days?",
+      qHindi: "क्लीनिक के विजिटिंग आवर्स (समय) और कार्य दिवस क्या हैं?",
+      a: "The clinic operates 7 days a week (Monday to Sunday) with dedicated visiting hours in two daily sessions: Morning Visiting Hours: 8:00 AM to 11:00 AM, and Evening Visiting Hours: 4:00 PM to 9:00 PM. This flexible schedule allows patients and working professionals to access specialized physiotherapy and rehabilitation conveniently.",
+      aHindi: "क्लीनिक सप्ताह के सातों दिन (सोमवार से रविवार) दो सत्रों में खुला रहता है: सुबह के विजिटिंग आवर्स: प्रातः 8:00 से 11:00 बजे तक, एवं शाम के विजिटिंग आवर्स: सायं 4:00 से रात 9:00 बजे तक। इससे सभी मरीज और नौकरीपेशा लोग अपनी सुविधानुसार समय पर विशेषज्ञ फिजियोथेरेपी उपचार करा सकते हैं।"
     },
     {
       q: "Is Home Visit Physiotherapy available in Kanpur?",
@@ -350,7 +360,7 @@ export const CLINIC_CONFIG = {
     { id: 1, title: "Original Logo File in High-Resolution", status: "configured", note: "Original high-resolution LOgo.png (4128x1024) active across website" },
     { id: 2, title: "Owner's HD Photograph & Clinic Photos", status: "configured", note: "Original clinical work photos (sli-1.jpg, sli-2.jpg, sli-3.jpg) integrated in home interactive slider" },
     { id: 3, title: "Final Confirmed List of Therapies & Equipment", status: "configured", note: "IFT, Ultrasound, Laser, Dry Needling & Hijama with clinical disclaimer" },
-    { id: 4, title: "Exact Google Maps Pin / Verified Business Profile Link", status: "configured", note: "Exact GPS coordinates 26°26'55.3\"N 80°19'16.9\"E (Param Purwa, Juhi, Kanpur - 208014) active" },
+    { id: 4, title: "Exact Google Maps Pin / Verified Business Profile Link", status: "configured", note: "Address: 83/4A-3, B.M. Market, Near Popular Dharam Kanta, Parampurwa, Kanpur - 208014 (Regd: REGD-PHY/16070)" },
     { id: 5, title: "Genuine Patient Testimonials & Google Review Link", status: "toggle_active", note: "showVerifiedReviews toggle implemented, feedback submission ready" },
     { id: 6, title: "Consultation & Session Fee Schedule Confirmation", status: "enquiry_prompt", note: "Configured to direct patients to call/WhatsApp for fee structure" }
   ]

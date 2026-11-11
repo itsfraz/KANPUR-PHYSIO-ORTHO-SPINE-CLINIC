@@ -21,13 +21,15 @@ import { CLINIC_CONFIG } from '../config/clinicData';
 
 export default function AboutDoctor({ language, onOpenContact }) {
   const isHindi = language === 'hi';
-  const [doctorSrc, setDoctorSrc] = useState(CLINIC_CONFIG.images?.doctor || '/doctor-fahad-alam.svg');
+  const [doctorSrc, setDoctorSrc] = useState(CLINIC_CONFIG.images?.doctor || '/images/Profile-Image.jpg');
   const [interiorSrc, setInteriorSrc] = useState('/images/clinic-interior.jpg');
   const [baySrc, setBaySrc] = useState('/images/Slider-2.png');
 
   const handleDoctorError = () => {
-    if (doctorSrc !== (CLINIC_CONFIG.images?.doctorFallback || '/doctor-fahad-alam.svg')) {
-      setDoctorSrc(CLINIC_CONFIG.images?.doctorFallback || '/doctor-fahad-alam.svg');
+    if (doctorSrc !== '/images/Profile-Image.jpg') {
+      setDoctorSrc('/images/Profile-Image.jpg');
+    } else {
+      setDoctorSrc('/doctor-fahad-alam.svg');
     }
   };
 
@@ -106,13 +108,13 @@ export default function AboutDoctor({ language, onOpenContact }) {
               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 rounded-full bg-teal-400/15 blur-2xl pointer-events-none" />
 
               {/* Doctor Portrait with Ring & Status Pill */}
-              <div className="relative mx-auto w-44 h-44 sm:w-52 sm:h-52 mb-5">
+              <div className="relative mx-auto w-48 h-48 sm:w-56 sm:h-56 mb-5">
                 <div className="w-full h-full rounded-3xl p-1 bg-gradient-to-br from-teal-500 via-teal-600 to-sky-600 shadow-xl ring-4 ring-teal-100/80 overflow-hidden">
-                  <div className="w-full h-full rounded-[22px] overflow-hidden bg-slate-900 flex items-center justify-center">
+                  <div className="w-full h-full rounded-[22px] overflow-hidden bg-slate-100 flex items-center justify-center">
                     <img 
                       src={doctorSrc} 
                       alt="Dr. Mohammad Fahad Alam - Senior Physical Therapist Kanpur"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       onError={handleDoctorError}
                     />
                   </div>
@@ -266,18 +268,26 @@ export default function AboutDoctor({ language, onOpenContact }) {
             {/* Official Clinic Identification & Credential Banner */}
             <div className="p-4 sm:p-5 bg-white border border-slate-200/90 rounded-3xl shadow-sm flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="h-12 w-auto max-w-[180px] sm:max-w-[220px] flex items-center">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white p-0.5 border-2 border-teal-500/40 shadow-xs flex items-center justify-center shrink-0 overflow-hidden">
                   <img 
                     src="/images/LOgo.png" 
                     alt="Kanpur Physio Ortho Spine Clinic Official Logo" 
-                    className="h-full w-auto object-contain"
+                    className="w-full h-full object-contain"
                   />
+                </div>
+                <div>
+                  <h3 className="text-black font-extrabold uppercase text-xs sm:text-sm tracking-wide">
+                    {isHindi ? CLINIC_CONFIG.clinicNameHindi : CLINIC_CONFIG.clinicName}
+                  </h3>
+                  <p className="text-[10px] sm:text-[11px] font-bold text-teal-700 uppercase tracking-wider">
+                    {isHindi ? CLINIC_CONFIG.taglineHindi : CLINIC_CONFIG.tagline}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2 bg-teal-50 border border-teal-200 px-3 py-1.5 rounded-2xl">
                 <ShieldCheck className="w-4 h-4 text-teal-700 shrink-0" />
                 <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-teal-800">
-                  {isHindi ? 'पंजीकृत फिजियोथेरेपी क्लीनिक • कानपुर' : 'Registered Clinical Facility • Kanpur'}
+                  {CLINIC_CONFIG.registrationNumber}
                 </span>
               </div>
             </div>
@@ -516,7 +526,7 @@ export default function AboutDoctor({ language, onOpenContact }) {
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-700">
                   <Clock className="w-4 h-4 text-sky-600" />
-                  <span>{isHindi ? 'सोमवार - रविवार खुला' : 'Open All 7 Days (9AM - 10PM)'}</span>
+                  <span>{isHindi ? 'विजिटिंग आवर्स: 8-11 AM • 4-9 PM (सातों दिन)' : 'Visiting Hours: 8-11 AM • 4-9 PM (All 7 Days)'}</span>
                 </div>
               </div>
 
@@ -533,8 +543,8 @@ export default function AboutDoctor({ language, onOpenContact }) {
                 </p>
                 <p className="text-xs text-teal-100/80">
                   {isHindi 
-                    ? 'सोमवार से रविवार • सुबह ९:०० से रात १०:०० बजे तक' 
-                    : 'Open Monday – Sunday • 9:00 AM – 10:00 PM (All Days)'}
+                    ? 'विजिटिंग आवर्स: प्रातः 8:00 से 11:00 • सायं 4:00 से 9:00 (सातों दिन)' 
+                    : 'Visiting Hours: 8:00 AM – 11:00 AM • 4:00 PM – 9:00 PM (Mon – Sun)'}
                 </p>
               </div>
 

@@ -23,7 +23,7 @@ export default function HomeTopSlider({
     },
     {
       id: 2,
-      image: '/images/Slider-2.png',
+      image: '/images/Slider-2.jpg',
       alt: 'Kanpur Physio Ortho Spine Clinic - Orthopedic Rehabilitation & Exercise Bay'
     },
     {
@@ -38,7 +38,7 @@ export default function HomeTopSlider({
     },
     {
       id: 5,
-      image: '/images/Slider-5.png',
+      image: '/images/Slider-5.jpeg',
       alt: 'Kanpur Physio Ortho Spine Clinic - Comprehensive Musculoskeletal Rehabilitation'
     }
   ];

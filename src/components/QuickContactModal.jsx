@@ -58,12 +58,17 @@ export default function QuickContactModal({
           </button>
 
           <div className="flex items-center justify-between gap-3 mb-2.5">
-            <div className="bg-white px-2 py-1 rounded-lg border border-slate-700 shadow-2xs inline-flex items-center">
-              <img 
-                src="/images/LOgo.png" 
-                alt="Clinic Logo" 
-                className="h-6 sm:h-7 w-auto max-w-[150px] object-contain" 
-              />
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-white p-0.5 border border-slate-700 shadow-2xs overflow-hidden shrink-0 flex items-center justify-center">
+                <img 
+                  src="/images/LOgo.png" 
+                  alt="Clinic Logo" 
+                  className="w-full h-full object-contain" 
+                />
+              </div>
+              <span className="text-white font-extrabold text-xs uppercase tracking-wide">
+                KANPUR PHYSIO
+              </span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 text-[10px] font-extrabold uppercase tracking-wider">
               <span>{isHindi ? 'एक ही नंबर पर दोनों' : 'Same Number for Both'}</span>
@@ -159,21 +164,24 @@ export default function QuickContactModal({
           </a>
 
           {/* Quick Clinic Timings Info */}
-          <div className="pt-2 border-t border-slate-100 text-[11px] text-slate-600 space-y-1.5">
-            <div className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5 text-teal-600 shrink-0" />
-              <span>
-                {isHindi 
-                  ? `समय: ${CLINIC_CONFIG.schedule.timingsHindi} (सातों दिन खुला)` 
-                  : `Operating Hours: ${CLINIC_CONFIG.schedule.timings} (${CLINIC_CONFIG.schedule.workingDays})`}
-              </span>
+          <div className="pt-2 border-t border-slate-100 text-[11px] text-slate-700 space-y-1.5">
+            <div className="flex items-center justify-between gap-1.5 p-2 rounded-xl bg-teal-50/80 border border-teal-200/80">
+              <div className="flex items-center gap-1.5 text-teal-900 font-bold">
+                <Clock className="w-3.5 h-3.5 text-teal-700 shrink-0" />
+                <span>{isHindi ? 'विजिटिंग आवर्स:' : 'Visiting Hours:'}</span>
+              </div>
+              <div className="flex items-center gap-1 text-[10px] font-extrabold text-teal-950">
+                <span className="bg-white px-1.5 py-0.5 rounded shadow-2xs">8:00–11:00 AM</span>
+                <span>•</span>
+                <span className="bg-white px-1.5 py-0.5 rounded shadow-2xs">4:00–9:00 PM</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 text-slate-600 text-[10px] sm:text-[11px]">
               <ShieldCheck className="w-3.5 h-3.5 text-teal-600 shrink-0" />
               <span>
                 {isHindi 
-                  ? 'तत्काल प्रतिक्रिया • कोई अग्रिम ऑनलाइन भुगतान आवश्यक नहीं' 
-                  : 'Fast Response • Direct Doctor Contact • No Advance Online Payment'}
+                  ? 'सोमवार से रविवार खुला • कोई अग्रिम ऑनलाइन भुगतान आवश्यक नहीं' 
+                  : 'Open All 7 Days • Direct Doctor Contact • No Advance Online Payment'}
               </span>
             </div>
           </div>

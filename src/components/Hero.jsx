@@ -71,7 +71,7 @@ export default function Hero({ language, onNavigateToSection, onOpenContact }) {
                 <div className="flex flex-wrap items-center gap-2">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-900 text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs">
                     <span className="w-2 h-2 rounded-full bg-emerald-600 animate-ping shrink-0" />
-                    <span>{isHindi ? 'खुला है • सुबह 9:00 से रात 10:00 बजे' : 'OPEN TODAY • 9:00 AM – 10:00 PM'}</span>
+                    <span>{isHindi ? 'विजिटिंग आवर्स: 8-11 AM • 4-9 PM' : 'VISITING: 8:00–11:00 AM • 4:00–9:00 PM'}</span>
                   </div>
                   
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs">
@@ -121,7 +121,7 @@ export default function Hero({ language, onNavigateToSection, onOpenContact }) {
                   <div className="p-2 sm:p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs text-center">
                     <p className="text-base sm:text-lg font-black text-sky-700 leading-none">7 Days</p>
                     <p className="text-[10px] text-slate-600 font-bold uppercase mt-1 truncate">
-                      {isHindi ? 'सुबह 9 - रात 10' : '9 AM – 10 PM'}
+                      {isHindi ? 'विजिटिंग: 8-11 व 4-9' : '8-11 AM & 4-9 PM'}
                     </p>
                   </div>
 
@@ -159,9 +159,9 @@ export default function Hero({ language, onNavigateToSection, onOpenContact }) {
                       sub: isHindi ? 'बुजुर्गों व गंभीर मरीजों हेतु' : 'Bedside Care for Elderly'
                     },
                     { 
-                      en: 'Open All 7 Days (9 AM – 10 PM)', 
-                      hi: 'सातों दिन खुला (सुबह 9 से रात 10)',
-                      sub: isHindi ? 'सुविधानुसार ओपीडी समय' : 'Flexible OPD Schedule'
+                      en: 'Visiting: 8-11 AM & 4-9 PM', 
+                      hi: 'विजिटिंग: सुबह 8-11 व शाम 4-9',
+                      sub: isHindi ? 'सोमवार से रविवार (सातों दिन)' : 'Open All 7 Days • Mon - Sun'
                     },
                   ].map((item, idx) => (
                     <div 
@@ -243,7 +243,7 @@ export default function Hero({ language, onNavigateToSection, onOpenContact }) {
               {/* Clinic Brand & Crest Header */}
               <div className="pb-3.5 border-b border-slate-100 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white p-1 border-2 border-teal-500/30 shadow-xs flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white p-0.5 border-2 border-teal-500/40 shadow-xs flex items-center justify-center shrink-0 overflow-hidden">
                     <img 
                       src="/images/LOgo.png" 
                       alt="Kanpur Physio Ortho Spine Clinic Logo" 
@@ -261,7 +261,7 @@ export default function Hero({ language, onNavigateToSection, onOpenContact }) {
                 </div>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-teal-800 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-lg shrink-0 flex items-center gap-1">
                   <ShieldCheck className="w-3 h-3 text-teal-600" />
-                  <span>{isHindi ? 'प्रमाणित केंद्र' : 'Verified Clinic'}</span>
+                  <span>{CLINIC_CONFIG.registrationNumber}</span>
                 </span>
               </div>
 
@@ -272,9 +272,14 @@ export default function Hero({ language, onNavigateToSection, onOpenContact }) {
                 <Stethoscope className="absolute -right-3 -bottom-3 w-28 h-28 text-white/5 pointer-events-none" />
 
                 <div className="flex items-center gap-3.5 relative z-10">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-teal-600 to-teal-500 text-white flex items-center justify-center shadow-md shrink-0 border border-teal-400/40 relative">
-                    <Stethoscope className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-                    <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-slate-900 flex items-center justify-center shadow-xs">
+                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl p-0.5 bg-gradient-to-tr from-teal-400 via-teal-500 to-emerald-400 shadow-md shrink-0 ring-2 ring-teal-300/40 overflow-hidden">
+                    <img 
+                      src={CLINIC_CONFIG.images?.doctor || '/images/Profile-Image.jpg'} 
+                      alt="Dr. Mohammad Fahad Alam - Physical Therapist"
+                      className="w-full h-full object-cover rounded-[14px]"
+                      onError={(e) => { e.currentTarget.src = '/doctor-fahad-alam.svg'; }}
+                    />
+                    <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-emerald-400 border-2 border-slate-900 flex items-center justify-center shadow-xs" title="Available Today">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-950" />
                     </span>
                   </div>
@@ -360,24 +365,47 @@ export default function Hero({ language, onNavigateToSection, onOpenContact }) {
               {/* Location & OPD Fast Summary Cards */}
               <div className="space-y-2 text-xs">
                 
-                {/* Timings Strip with Open Status */}
-                <div className="flex items-center justify-between gap-3 p-2.5 sm:p-3 bg-slate-50 rounded-xl border border-slate-200/80">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="p-1.5 rounded-lg bg-teal-100 text-teal-800 shrink-0">
-                      <Clock className="w-4 h-4" />
+                {/* Visiting Hours Strip with Dual Session Slots */}
+                <div className="p-2.5 sm:p-3 bg-gradient-to-br from-slate-50 via-teal-50/20 to-sky-50/20 rounded-xl border border-slate-200/90 shadow-2xs space-y-2">
+                  <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-slate-200/70">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <div className="p-1.5 rounded-lg bg-teal-600 text-white shrink-0 shadow-2xs">
+                        <Clock className="w-3.5 h-3.5" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wide text-black block leading-tight">
+                          {isHindi ? 'विजिटिंग आवर्स' : 'VISITING HOURS'}
+                        </span>
+                        <span className="text-[9px] text-teal-800 font-semibold block">
+                          {isHindi ? 'सोमवार से रविवार (सातों दिन)' : 'Monday to Sunday (All 7 Days)'}
+                        </span>
+                      </div>
                     </div>
-                    <div className="min-w-0">
-                      <span className="text-[9px] text-slate-500 font-bold uppercase block leading-none mb-0.5">
-                        {isHindi ? 'परामर्श समय (सातों दिन खुला)' : 'OPD TIMINGS (MON – SUN)'}
+                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-300 px-2 py-0.5 rounded-full shrink-0 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                      <span>{isHindi ? 'सक्रिय' : 'Open'}</span>
+                    </span>
+                  </div>
+
+                  {/* 2 Session Pill Cards */}
+                  <div className="grid grid-cols-2 gap-2 text-center">
+                    <div className="bg-white p-2 rounded-lg border border-teal-200/70 shadow-2xs">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-teal-800 block">
+                        {isHindi ? 'सुबह का समय' : 'Morning Slot'}
                       </span>
-                      <p className="text-xs sm:text-sm font-extrabold text-black leading-tight">
-                        {CLINIC_CONFIG.schedule.timings}
-                      </p>
+                      <strong className="text-xs sm:text-[13px] font-black text-black block">
+                        8:00 AM – 11:00 AM
+                      </strong>
+                    </div>
+                    <div className="bg-white p-2 rounded-lg border border-teal-200/70 shadow-2xs">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-teal-800 block">
+                        {isHindi ? 'शाम का समय' : 'Evening Slot'}
+                      </span>
+                      <strong className="text-xs sm:text-[13px] font-black text-black block">
+                        4:00 PM – 9:00 PM
+                      </strong>
                     </div>
                   </div>
-                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full shrink-0">
-                    {isHindi ? 'उपलब्ध' : 'Available'}
-                  </span>
                 </div>
 
                 {/* Location Strip with Directions Link */}
@@ -388,7 +416,7 @@ export default function Hero({ language, onNavigateToSection, onOpenContact }) {
                     </div>
                     <div className="min-w-0">
                       <span className="text-[9px] text-slate-500 font-bold uppercase block leading-none mb-0.5">
-                        {isHindi ? 'क्लीनिक पता (जूही / गोविंद नगर)' : 'CLINIC LOCATION'}
+                        {isHindi ? 'क्लीनिक पता (परम पुरवा)' : 'CLINIC LOCATION (B.M. MARKET)'}
                       </span>
                       <p className="text-xs font-bold text-black truncate leading-tight">
                         {CLINIC_CONFIG.address.short}
